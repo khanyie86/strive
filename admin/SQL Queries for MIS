@@ -1,0 +1,34 @@
+-----------------------------------------------
+To count how many times each learner_surname appears in the learner table,
+you can use the GROUP BY clause along with the COUNT function.
+
+SELECT learner_surname, COUNT(*) AS count
+FROM learner
+GROUP BY learner_surname;
+
+-----------------------------------------------
+To calculate the age of each learner based on the learner_dob column in SQL,
+you can use the DATEDIFF function along with some date functions.
+
+SELECT learner_id, learner_name, learner_surname,
+       FLOOR(DATEDIFF(CURDATE(), learner_dob) / 365.25) AS age
+FROM learner;
+
+---------------------------------------------------------------
+To count how many learners are of each age,
+you can use the query to calculate the age and then group the results by age.
+
+SELECT
+    FLOOR(DATEDIFF(CURDATE(), learner_dob) / 365.25) AS age,
+    COUNT(*) AS count
+FROM learner
+GROUP BY age
+ORDER BY age;
+
+-----------------------------------------------
+
+-----------------------------------------------
+
+-----------------------------------------------
+
+-----------------------------------------------
